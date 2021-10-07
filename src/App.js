@@ -1,29 +1,36 @@
-import React, { Component } from 'react';
-import './App.css';
-import './components/DataComponentLoop/Component.css'
-import './components/Loader/Loader.css';
-import './components/Nav/Nav.css';
-import './components/Footer/Footer.css';
-import './components/Header/Header.css'
-import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
-import InstanceLoop from './components/DataComponentLoop/Component';
-import Header from "./components/Header/Header";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Axios from "axios";
 
-class App extends Component {
+function App() {
+  Axios.get('https://api.github.com/users/drulacosmin')
+  .then((response) => {
+    console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.headers);
+    console.log(response.config);
+  });
 
-  render() {
-
-    return (
-
-      <div className="App">
-        <Nav />
-        <Header />
-        <InstanceLoop />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;

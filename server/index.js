@@ -7,7 +7,9 @@ const axios = require('axios');
 
 
 app.use(bodyParser.json());
+app.options('*', cors())
 app.use(cors());
+
 
 const changeDir = require(`./controller/mainController`);
 
